@@ -7,7 +7,7 @@ function App() {
   return (
     <PocketContextProvider>
       <Router>
-        <div>My Information System</div>
+        <div>My is</div>
       </Router>
     </PocketContextProvider>
   );
