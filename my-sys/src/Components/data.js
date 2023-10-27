@@ -1,40 +1,40 @@
-// src/components/DataList.js
-import React, { useEffect, useState } from "react";
-import { usePocket } from "../contexts/PocketContext";
+import React from "react";
+import { PocketContextProvider, usePocket } from "./contexts/PocketContext";
+import { BrowserRouter as Router } from "react-router-dom";
 
-export const DataList = ({ collection }) => {
-  const { pb } = usePocket();
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    pb.collection(collection)
-      .getFullList()
-      .then((response) => {
-        setData(response.data);
-      });
-  }, [pb, collection]);
+const App = () => {
+  const pb = usePocket();
+  const students = pb.collection("students").getFullList();
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.description}</td>
+    <Router>
+      <div>
+        <h1>Students</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Full_Name</th>
+              <th>Email</th>
+              <th>Number</th>
+              
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {students.map((student) => (
+              <tr key={student.id}>
+                <td>{student.id}</td>
+                <td>{student.name}</td>
+                <td>{student.email}</td>
+                <td>{student.Number}</td>
+               
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Router>
   );
 };
 
+export default App;
