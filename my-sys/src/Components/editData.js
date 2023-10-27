@@ -38,7 +38,7 @@ export const EditData = ({ item }) => {
   );
 };
 
-/ src/routes/EditData.js
+// src/routes/EditData.js
 import React from "react";
 import { EditData } from "../components/EditData";
 
