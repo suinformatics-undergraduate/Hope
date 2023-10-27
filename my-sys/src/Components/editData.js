@@ -37,9 +37,3 @@ export const EditData = ({ item }) => {
     </form>
   );
 };
-
-// src/routes/EditData.js
-import React from "react";
-import { EditData } from "../components/EditData";
-
-const EditDataRoute = ({ item })
