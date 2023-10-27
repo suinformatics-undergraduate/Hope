@@ -1,15 +1,14 @@
 import React from "react";
-import { PocketContextProvider } from "./contexts/PocketContext";
+import { PocketContextProvider, usePocket } from "./contexts/PocketContext";
 import { BrowserRouter as Router } from "react-router-dom";
-import './App.css';
 
 function App() {
+  const pb = usePocket();
+
   return (
-    <PocketContextProvider>
-      <Router>
-        <div>My is</div>
-      </Router>
-    </PocketContextProvider>
+    <Router>
+      <div>PocketBase: {pb.url}</div>
+    </Router>
   );
 }
 
